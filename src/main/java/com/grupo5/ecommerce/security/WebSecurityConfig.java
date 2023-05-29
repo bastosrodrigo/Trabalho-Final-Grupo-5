@@ -43,7 +43,7 @@ public class WebSecurityConfig {
             .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) //define a politica de sessao
             .authorizeHttpRequests(auth -> auth
             		.requestMatchers("/roles/**", "/auth/**").permitAll() //define as rotas publicas/abertas
-                    .requestMatchers("/categorias/**", "/clientes/**", "/telefones/**").hasRole("ADMIN") // autoriza o acesso a rotas por perfil
+                    .requestMatchers("/categorias/**", "/clientes/**", "/enderecos/**", "/itempedidos/**", "/pedidos/**", "/produtos/**").hasRole("ADMIN") // autoriza o acesso a rotas por perfil
                     .requestMatchers("/test/user/**").hasAnyRole("USER", "ADMIN") //autoriza o acesso a rotas por perfis
                     //.requestMatchers(HttpMethod.DELETE, "/turmas/").permitAll()
                     //.requestMatchers(HttpMethod.POST, "/instrutores/**").permitAll() // Permitir POST sem autenticação

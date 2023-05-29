@@ -45,7 +45,7 @@ public class ProdutoController {
         return new ResponseEntity<>(produtoService.saveProduto(produto),HttpStatus.CREATED);
     }
     
-    @PutMapping
+    @PutMapping("/{id}")
     public ResponseEntity<Produto> updateProduto(@RequestBody Produto produto) {
     	if(produtoService.getProdutoById(produto.getIdProduto()) != null) {
             return new ResponseEntity<> (produtoService.updateProduto(produto),
