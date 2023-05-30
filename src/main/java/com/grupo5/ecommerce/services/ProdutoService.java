@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.grupo5.ecommerce.entities.Produto;
+import com.grupo5.ecommerce.exceptions.ProdutoNotFoundException;
 import com.grupo5.ecommerce.repositories.ProdutoRepository;
 
 @Service
@@ -21,7 +22,8 @@ public class ProdutoService {
 	}
 	
 	public Produto getProdutoById(Integer id) {
-		Produto produto = produtoRepository.findById(id).orElse(null);
+		Produto produto = produtoRepository.findById(id).orElseThrow(()
+				-> new ProdutoNotFoundException(id));
 		
 		if(produto==null)
 			return null;
