@@ -7,6 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import jakarta.persistence.Column;
@@ -55,6 +56,7 @@ public class Produto {
 					referencedColumnName = "id_categoria")
 	private Categoria categoria;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "produto")
 	private Set<ItemPedido> pedidos = new HashSet<>();
 

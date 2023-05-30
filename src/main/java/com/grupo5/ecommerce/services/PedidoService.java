@@ -1,5 +1,6 @@
 package com.grupo5.ecommerce.services;
 
+import java.time.Instant;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +32,7 @@ public class PedidoService {
 	}
 	
 	public Pedido savePedido(Pedido pedido) {
+		pedido.setDataPedido(Instant.now());
 		return pedidoRepository.save(pedido);
 	}
 	

@@ -3,6 +3,7 @@ package com.grupo5.ecommerce.entities;
 import java.math.BigDecimal;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import jakarta.persistence.Column;
@@ -42,6 +43,7 @@ public class ItemPedido {
 	@Column ( name = "valor_liquido")
 	private BigDecimal valorLiquido;
 	
+	@JsonIgnore
 	@ManyToOne 
 	@JoinColumn(name = "id_pedido", 
 					referencedColumnName = "id_pedido")
